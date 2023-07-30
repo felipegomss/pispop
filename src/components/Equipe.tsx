@@ -2,18 +2,19 @@
 import React, { useState, useEffect } from "react";
 import PsychologistCard from "./PsychologistCard";
 import { Psychologist } from "@/types/Psychologist";
-import "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "@/utils/firebaseConfig";
 import Skeleton from "react-loading-skeleton";
-import { Slide } from "react-awesome-reveal";
 import ReactPaginate from "react-paginate";
+import { Slide } from "react-awesome-reveal";
+import { db } from "@/utils/firebaseConfig";
+import "firebase/firestore";
 
-const PsychologistList: React.FC<Psychologist> = () => {
+const Equipe: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [psychologists, setPsychologists] = useState<Psychologist[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const itemsPerPage = 12;
+
   useEffect(() => {
     const loadPsychologists = async () => {
       try {
@@ -110,4 +111,4 @@ const PsychologistList: React.FC<Psychologist> = () => {
   );
 };
 
-export default PsychologistList;
+export default Equipe;
