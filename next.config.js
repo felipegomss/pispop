@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 require("dotenv").config();
 
-module.exports = {
+const nextConfig = {
   env: {
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
     FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
@@ -12,3 +12,5 @@ module.exports = {
     FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,
   },
 };
+
+module.exports = nextConfig;
