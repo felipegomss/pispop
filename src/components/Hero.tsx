@@ -4,10 +4,11 @@ import Image from "next/image";
 import "../app/globals.css";
 import { HeartHandshake } from "lucide-react";
 import { JackInTheBox } from "react-awesome-reveal";
+import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="h-screen flex p-4 relative bg-[linear-gradient(to_right_top,#10b981,#00b8ac,#00b3d4,#00aaf0,#009bf8,#0096f0,#0090e9,#008be1,#008dca,#0089a5,#00827d,#047857)] text-white text-center py-20">
+    <section className="min-h-screen flex p-4 relative bg-[linear-gradient(to_right_top,#10b981,#00b8ac,#00b3d4,#00aaf0,#009bf8,#0096f0,#0090e9,#008be1,#008dca,#0089a5,#00827d,#047857)] text-white text-center py-20 pt-40">
       <div className="w-max-7xl md:bg-hero bg-right bg-contain bg-no-repeat md:w-1/2 text-start gap-10 m-auto container flex flex-col items-start justify-center">
         {/* <div className="w-full md:w-1/2 m-auto text-start gap-8"> */}
         <h1 className="text-6xl font-bold md:w-2/3">
@@ -35,9 +36,15 @@ const Hero = () => {
           </ul>
         </div>
         <JackInTheBox triggerOnce>
-          <button className="px-6 py-3 bg-white text-blue-500 font-semibold rounded-md shadow hover:bg-blue-50 transition-colors flex gap-2">
+          <Link
+            href={
+              "https://docs.google.com/forms/d/e/1FAIpQLSfWw4x1jUHipE0kgfpBBMwLPtudLwEr0vvNNGDvBdgGiJcszw/viewform"
+            }
+            className="px-6 py-3 bg-white text-blue-500 font-semibold rounded-md shadow hover:bg-blue-50 transition-colors flex gap-2"
+            target="_blank"
+          >
             Quero começar minha jornada de cuidado! <HeartHandshake />
-          </button>
+          </Link>
         </JackInTheBox>
         {/* </div> */}
         {/* <div className="w-full md:w-1/2 relative">

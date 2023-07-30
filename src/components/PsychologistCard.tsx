@@ -34,8 +34,8 @@ const PsychologistCard: React.FC<PsychologistCardProps> = ({
   };
 
   return (
-    <div className="bg-gradient-to-r from-emerald-500 to-blue-500 shadow-md rounded-lg">
-      <div className="flex flex-col gap-2 p-4">
+    <div className="bg-gradient-to-r from-emerald-500 to-blue-500 shadow-md rounded-lg min-h-[500px]">
+      <div className="flex flex-col gap-2 p-4 h-full">
         <div className=" gap-2 flex flex-col items-center">
           <Image
             src={imageUrl || "/icon.png"}
@@ -45,44 +45,62 @@ const PsychologistCard: React.FC<PsychologistCardProps> = ({
             onError={handleImageError}
             className="rounded-full w-32 h-32 mx-auto"
           />
-          <p className="text-white font-bold text-xl">{abordagem}</p>
+          <h1 className="text-slate-50 font-bold text-xl">{abordagem}</h1>
         </div>
-        <div className="flex flex-col justify-between gap-2 flex-grow">
+        <div className="flex flex-col gap-2 flex-grow">
           <div className="">
-            <h2 className="text-2xl font-semibold text-white">{nome}</h2>
-            <p className="text-white text-sm">
-              {regiaoNumber}/{crp}
+            <h2 className="text-2xl font-semibold text-slate-50">{nome}</h2>
+            <p className="text-slate-200 text-sm">
+              <strong>CRP</strong> {regiaoNumber}/{crp}
             </p>
           </div>
           <div>
-            <p className="text-white">
+            <p className="text-slate-50 overflow-hidden">
               Formado em{" "}
-              {formacoes.map((formacao, index) =>
-                index === formacoes.length - 1
-                  ? `e ${formacao}.`
-                  : `${formacao}, `
-              )}
+              {formacoes.length > 0 &&
+                formacoes
+                  .slice(0, 2)
+                  .map((formacao, index) =>
+                    formacoes.length > 2 && index === 2
+                      ? `${formacao}...`
+                      : formacoes.length === 1
+                      ? `${formacao}.`
+                      : index === formacoes.length - 2
+                      ? `${formacao} `
+                      : index === formacoes.length - 1
+                      ? `e ${formacao}.`
+                      : `${formacao}, `
+                  )}
             </p>
-            <p className="text-white">
+            <p className="text-slate-50 overflow-hidden">
               Experiência em{" "}
-              {experiencias.map((experiencia, index) =>
-                index === experiencias.length - 1
-                  ? `e ${experiencia}.`
-                  : `${experiencia}, `
-              )}
+              {experiencias.length > 0 &&
+                experiencias
+                  .slice(0, 3)
+                  .map((experiencia, index) =>
+                    experiencias.length > 3 && index === 2
+                      ? `${experiencia}...`
+                      : experiencias.length === 1
+                      ? `${experiencia}.`
+                      : index === experiencias.length - 2
+                      ? `${experiencia} `
+                      : index === experiencias.length - 1
+                      ? `e ${experiencia}.`
+                      : `${experiencia}, `
+                  )}
             </p>
           </div>
-          <div className="border-t border-white pt-4">
-            <p className="text-white">
+        </div>
+        <div className="flex flex-col gap-2">
+          <div className="border-t border-slate-50 pt-4">
+            <p className="text-slate-50">
               <span className="font-semibold">Valor da Consulta:</span> R$
               {formattedValorConsulta}
             </p>
           </div>
-        </div>
-        <div className="">
           {numeroWhatsapp && (
             <a href="https://wa.me/${numeroWhatsapp}" target="_blank">
-              <div className="w-full px-6 py-3 bg-blue-500 text-white font-semibold rounded-md shadow hover:bg-blue-600 transition-colors text-center">
+              <div className="w-full px-6 py-3 bg-blue-500 text-slate-50 font-semibold rounded-md shadow hover:bg-blue-600 transition-colors text-center">
                 Entrar em Contato
               </div>
             </a>
